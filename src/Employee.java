@@ -1,7 +1,8 @@
 interface Employee extends Comparable<Employee> {
-    int getMonthSalary();
+    double getMonthSalary();
+
     @Override
     default int compareTo(Employee e) {
-        return getMonthSalary() - e.getMonthSalary();
+        return (int) (getMonthSalary() - e.getMonthSalary());
     }
 }

@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+.idea/
+/out/
+/target/
+/build/
+/.m2/
+/workspace.xml
+Thumbs.db
+Desktop.ini
+*.iml

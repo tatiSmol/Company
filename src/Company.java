@@ -22,7 +22,7 @@ public class Company {
         staffList.remove(employee);
     }
 
-    protected int getIncome() {
+    protected double getIncome() {
         return income;
     }
 
