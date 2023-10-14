@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 public class Company {
     protected ArrayList<Employee> staffList;
-    protected int income;
+    protected double income;
 
     public Company() {
         staffList = new ArrayList<>();
@@ -23,14 +24,29 @@ public class Company {
     }
 
     protected double getIncome() {
+        for (Employee employee : staffList) {
+            if (employee instanceof Manager) {
+                income += ((Manager) employee).getEarnedMoney();
+            }
+        }
         return income;
     }
 
+    protected boolean isQuantityCorrect(int count) {
+        return count > 0 && count <= staffList.size();
+    }
+
     protected List<Employee> getTopSalaryStaff(int count) {
-        return null;
+        if (isQuantityCorrect(count)) {
+            staffList.sort(Comparator.reverseOrder());
+        }
+        return staffList.subList(0, count);
     }
 
     protected List<Employee> getLowestSalaryStaff(int count) {
-        return null;
+        if (isQuantityCorrect(count)) {
+            staffList.sort(Comparator.naturalOrder());
+        }
+        return staffList.subList(0, count);
     }
 }
