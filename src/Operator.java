@@ -8,6 +8,6 @@ public class Operator implements Employee {
 
     @Override
     public String toString() {
-        return getClass().getName() + ", зарплата: " + getMonthSalary() + ".руб;";
+        return getClass().getName() + ": зарплата: " + getMonthSalary() + " руб;";
     }
 }
