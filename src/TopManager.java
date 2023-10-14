@@ -3,12 +3,12 @@ public class TopManager implements Employee{
     protected double bonus;
 
     protected double salaryWithBonus() {
-        bonus = (double) Math.round(SALARY * 1.5 * 100.0) / 100;
-        return (double) Math.round((SALARY + bonus) * 100.0) / 100;
+        bonus = SALARY * 1.5;
+        return SALARY + bonus;
     }
 
     protected boolean isPlanFulfilled() {
-        return Company.getIncome() > 10_000_000;
+        return Company.income > 10_000_000;
     }
 
     @Override
