@@ -4,8 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Company {
-    protected ArrayList<Employee> staffList;
-    protected double income;
+    protected static ArrayList<Employee> staffList;
 
     public Company() {
         staffList = new ArrayList<>();
@@ -23,7 +22,8 @@ public class Company {
         staffList.remove(employee);
     }
 
-    protected double getIncome() {
+    protected static double getIncome() {
+        double income = 0;
         for (Employee employee : staffList) {
             if (employee instanceof Manager) {
                 income += ((Manager) employee).getEarnedMoney();
