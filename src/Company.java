@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Company {
     protected ArrayList<Employee> staffList;
-    protected static double income;
+    protected double income;
 
     public Company() {
         staffList = new ArrayList<>();
@@ -24,13 +24,18 @@ public class Company {
         staffList.remove(employee);
     }
 
+    protected ArrayList<Employee> getStaffList() {
+        return staffList;
+    }
+
     protected double getIncome() {
+        income = 0;
         for (Employee employee : staffList) {
             if (employee instanceof Manager) {
                 income += ((Manager) employee).getEarnedMoney();
             }
         }
-        return income;
+        return (double) Math.round(income * 100.0) / 100;
     }
 
     protected boolean isQuantityCorrect(int count) {
